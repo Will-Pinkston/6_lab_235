@@ -198,7 +198,35 @@ BST::Node* BST::findLeftGreatest(Node* remL_Child)
 
 void BST::clear()
 {
+    Node* clearCheck = clearHelper(_Root);
+    if (clearCheck!= NULL) cout << "error in clearHelper" << endl;
+    _Root = clearCheck;
+}
+
+//-----
+//-----
+
+BST::Node* BST::clearHelper(Node* here) {
     
+    if (here == NULL) return NULL;
+    
+    Node* temp = here;
+    Node* left = temp->leftChild;
+    Node* right = temp->rightChild;
+    
+    clearHelper(left);
+    clearHelper(right);
+    
+    delete temp;
+    temp = NULL;
+    return temp;
 }
 
 //----------------------------------------------------------
+
+
+
+
+
+
+
