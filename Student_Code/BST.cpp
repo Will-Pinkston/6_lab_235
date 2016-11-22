@@ -74,7 +74,7 @@ bool BST::addHelper(Node* &here, int data)
 //-----
 //-----
 
-bool BST::removeHelper(Node* &here, int data)
+bool BST::removeHelper(Node* here, int data)
 {
     cout << "removeHelper(" << data << ")" << endl;
     Node* parentNode = findVal(here, data);

@@ -48,7 +48,7 @@ public:
     void clear();
     // helper functions
     bool addHelper(Node* &here, int data);
-    bool removeHelper(Node* &here, int data);
+    bool removeHelper(Node* here, int data);
     Node* findVal(Node* find, int data);
     Node* findValR(Node* find, int data);
     Node* findLeftGreatest(Node* remL_Child);
