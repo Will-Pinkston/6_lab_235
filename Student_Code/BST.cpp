@@ -175,7 +175,7 @@ BST::Node* BST::findValR(Node* find, int data)
 
 BST::Node* BST::findLeftGreatest(Node* remL_Child)
 {
-    cout << "findLeftGreatest(" << remL_Child->value << ")" << endl;
+//    cout << "findLeftGreatest(" << remL_Child->value << ")" << endl;
     if (remL_Child->rightChild == NULL)
     {
         return remL_Child;
