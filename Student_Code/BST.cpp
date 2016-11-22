@@ -29,12 +29,12 @@ NodeInterface* BST::getRootNode()
 
 bool BST::add(int data)
 {
-    cout << "add(" << data << ")" << endl;
+//    cout << "add(" << data << ")" << endl;
     return addHelper(_Root, data);
 }
 bool BST::remove(int data)
 {
-    cout << "remove(" << data << ")" << endl;
+//    cout << "remove(" << data << ")" << endl;
     Node* remR = _Root;
     return removeHelper(remR, data);
 }
@@ -44,7 +44,7 @@ bool BST::remove(int data)
 
 bool BST::addHelper(Node* &here, int data)
 {
-    cout << "addHelper(" << data << ")" << endl;
+//    cout << "addHelper(" << data << ")" << endl;
     if (here == NULL)
     {
         here = new Node();
@@ -76,12 +76,11 @@ bool BST::addHelper(Node* &here, int data)
 
 bool BST::removeHelper(Node* here, int data)
 {
-    cout << "removeHelper(" << data << ")" << endl;
+//    cout << "removeHelper(" << data << ")" << endl;
     Node* parentNode = findVal(here, data);
     if (parentNode == NULL) return false;
     if (data == parentNode->value && parentNode == _Root)
     {
-        //////////////
         Node* replaceRoot = findLeftGreatest(parentNode->leftChild);
         if (replaceRoot == NULL)
         {
@@ -153,7 +152,7 @@ bool BST::removeHelper(Node* here, int data)
 
 BST::Node* BST::findVal(Node* find, int data)
 {
-    cout << "findVal(" << data << ")" << endl;
+//    cout << "findVal(" << data << ")" << endl;
     //check the root
     if (find == NULL) return NULL;
     if (find->value == data) return find;
@@ -163,7 +162,7 @@ BST::Node* BST::findVal(Node* find, int data)
 
 BST::Node* BST::findValR(Node* find, int data)
 {
-    cout << "findValR(" << find->value << ", " << data << ")" << endl;
+//    cout << "findValR(" << find->value << ", " << data << ")" << endl;
     //checks one node ahead, so that it can return the parent node
     if (find->leftChild == NULL && find->rightChild == NULL) return NULL;
     if (data < find->value && find->leftChild == NULL) return NULL;
@@ -199,7 +198,7 @@ BST::Node* BST::findLeftGreatest(Node* remL_Child)
 void BST::clear()
 {
     Node* clearCheck = clearHelper(_Root);
-    if (clearCheck!= NULL) cout << "error in clearHelper" << endl;
+//    if (clearCheck!= NULL) cout << "error in clearHelper" << endl;
     _Root = clearCheck;
 }
 
