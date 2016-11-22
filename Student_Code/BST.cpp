@@ -79,7 +79,7 @@ bool BST::removeHelper(Node* here, int data)
     cout << "removeHelper(" << data << ")" << endl;
     Node* parentNode = findVal(here, data);
     if (parentNode == NULL) return false;
-    if (data == parentNode->value)
+    if (data == parentNode->value && parentNode == _Root)
     {
         Node* replaceRoot = findLeftGreatest(parentNode->leftChild);
         int hold = replaceRoot->value;
