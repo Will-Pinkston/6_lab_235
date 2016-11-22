@@ -83,6 +83,7 @@ bool BST::removeHelper(Node* here, int data)
     {
         //////////////
         Node* replaceRoot = findLeftGreatest(parentNode->leftChild);
+        if (replaceRoot == NULL) return false;
         int hold = replaceRoot->value;
         remove(hold);
         parentNode->value = hold;
