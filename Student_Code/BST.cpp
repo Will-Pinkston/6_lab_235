@@ -81,6 +81,7 @@ bool BST::removeHelper(Node* here, int data)
     if (parentNode == NULL) return false;
     if (data == parentNode->value && parentNode == _Root)
     {
+        //////////////
         Node* replaceRoot = findLeftGreatest(parentNode->leftChild);
         int hold = replaceRoot->value;
         remove(hold);
@@ -176,6 +177,7 @@ BST::Node* BST::findValR(Node* find, int data)
 BST::Node* BST::findLeftGreatest(Node* remL_Child)
 {
 //    cout << "findLeftGreatest(" << remL_Child->value << ")" << endl;
+    if (remL_Child == NULL) return NULL;
     if (remL_Child->rightChild == NULL)
     {
         return remL_Child;
