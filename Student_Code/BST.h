@@ -14,6 +14,7 @@
 //#include "Node.h"
 
 class BST : public BSTInterface {
+    
 private:
     //
     class Node : public NodeInterface {
@@ -39,6 +40,7 @@ private:
     };
     //
     Node* _Root;
+    
 public:
     BST();
     ~BST();
@@ -46,12 +48,14 @@ public:
     bool add(int data);
     bool remove(int data);
     void clear();
+    
     // helper functions
     bool addHelper(Node* &here, int data);
     bool removeHelper(Node* here, int data);
     Node* findVal(Node* find, int data);
     Node* findValR(Node* find, int data);
     Node* findLeftGreatest(Node* remL_Child);
+    Node* clearHelper(Node* here);
 };
 
 #endif /* BST_h */
