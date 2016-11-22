@@ -79,21 +79,35 @@ bool BST::removeHelper(Node* here, int data)
 //    cout << "removeHelper(" << data << ")" << endl;
     Node* parentNode = findVal(here, data);
     if (parentNode == NULL) return false;
-    if (data == parentNode->value && parentNode == _Root)
+    if (data == parentNode->value && parentNode == _Root)//delete root
     {
-        Node* replaceRoot = findLeftGreatest(parentNode->leftChild);
-        if (replaceRoot == NULL)
+        /////
+        if (parentNode->leftChild == NULL && parentNode->rightChild == NULL)
         {
             _Root = NULL;
             delete parentNode;
         }
         else
         {
-            int hold = replaceRoot->value;
-            remove(hold);
-            parentNode->value = hold;
+            //else check for replacement on left tree
+            Node* replaceRoot = findLeftGreatest(parentNode->leftChild);
+            if (replaceRoot == NULL)
+            {
+                //left tree empty
+                _Root = parentNode->rightChild;
+                delete parentNode;
+            }
+            else
+            {
+                int hold = replaceRoot->value;
+                remove(hold);
+                parentNode->value = hold;
+            }
         }
         return true;
+        
+        
+        /////
     }
     
     Node* temp = NULL;
@@ -143,6 +157,7 @@ bool BST::removeHelper(Node* here, int data)
             }
         }
         delete temp;
+        temp = NULL;
     }
     return true;
 }
